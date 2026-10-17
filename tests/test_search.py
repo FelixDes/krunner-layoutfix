@@ -1,9 +1,13 @@
+import gi
 import pytest
 
-import apps
-import runner
-from layouts import Converter, load_keymaps, parse_layouts
-from runner import LayoutFix
+gi.require_version("Gio", "2.0")
+from gi.repository import Gio  # noqa: E402
+
+import apps  # noqa: E402
+import runner  # noqa: E402
+from layouts import Converter, load_keymaps, parse_layouts  # noqa: E402
+from runner import LayoutFix  # noqa: E402
 
 
 @pytest.fixture
@@ -13,7 +17,7 @@ def entry(tmp_path):
         path = tmp_path / f"app{len(list(tmp_path.iterdir()))}.desktop"
         lines = ["[Desktop Entry]", "Type=Application", "Exec=true", *(f"{k}={v}" for k, v in keys.items())]
         path.write_text("\n".join(lines) + "\n")
-        return apps.DesktopAppInfo.new_from_filename(str(path))
+        return Gio.DesktopAppInfo.new_from_filename(str(path))
     return create
 
 

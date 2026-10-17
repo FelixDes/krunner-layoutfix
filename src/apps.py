@@ -9,12 +9,9 @@ import gi
 gi.require_version("Gio", "2.0")
 from gi.repository import Gio, GLib  # noqa: E402
 
-try:
-    gi.require_version("GioUnix", "2.0")
-    from gi.repository import GioUnix  # noqa: E402
-    DesktopAppInfo = GioUnix.DesktopAppInfo
-except (ValueError, ImportError):  # GLib < 2.80
-    DesktopAppInfo = Gio.DesktopAppInfo
+# Apps come from Gio.AppInfo.get_all() and the DesktopAppInfo class is never
+# named here: it moved from Gio to GioUnix, and in older GLib (2.80 in Ubuntu
+# 24.04) importing GioUnix breaks the methods of every app object.
 
 
 @dataclass(frozen=True)
@@ -104,7 +101,9 @@ def launch(app_id):
     if kstart:
         Gio.Subprocess.new([kstart, "--application", app_id], Gio.SubprocessFlags.NONE)
     else:  # Plasma 5
-        DesktopAppInfo.new(app_id + ".desktop").launch([], None)
+        info = next((info for info in Gio.AppInfo.get_all() if info.get_id() == app_id + ".desktop"), None)
+        if info:
+            info.launch([], None)
 
 
 def _searchable(info):

@@ -1,3 +1,5 @@
 [tool.pytest.ini_options]
 pythonpath = ["src"]
 testpaths = ["tests"]
+# Tests build apps from files with Gio.DesktopAppInfo; see the note in src/apps.py.
+filterwarnings = ["ignore:Gio.DesktopAppInfo is deprecated"]
