@@ -1,6 +1,6 @@
-<img src="data/logo.svg" width="96" align="right" alt="">
+<p align="center"><img src="data/logo.svg" width="128" alt=""></p>
 
-# krunner-layoutfix
+<h1 align="center">krunner-layoutfix</h1>
 
 A KRunner plugin that finds applications when you typed their name with the
 wrong keyboard layout active. Works in KRunner (Alt+Space) and in the search of
