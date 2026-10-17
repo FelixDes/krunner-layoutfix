@@ -5,8 +5,10 @@ This is a D-Bus runner (org.kde.krunner1): KRunner and the Application
 Launcher send it every query and show the matches it returns.
 """
 import argparse
+import filecmp
 import logging
 import os
+import shutil
 from dataclasses import dataclass
 
 import gi
@@ -155,6 +157,25 @@ def _mtime(path):
         return None
 
 
+def _install_icon():
+    """Puts the plugin icon into the user's icon theme when installed from the KDE Store.
+
+    The store installer only registers the D-Bus service and copies the metadata,
+    which names the icon; install.sh and distribution packages install it themselves.
+    """
+    icon = BUS_NAME + ".svg"  # no "-" in the name: themes would match "krunner-…" to their KRunner icon
+    source = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir, "data", icon)
+    data_home = os.environ.get("XDG_DATA_HOME") or os.path.expanduser("~/.local/share")
+    target = os.path.join(data_home, "icons", "hicolor", "scalable", "apps", icon)
+    if not os.path.exists(source) or (os.path.exists(target) and filecmp.cmp(source, target, shallow=False)):
+        return
+    try:
+        os.makedirs(os.path.dirname(target), exist_ok=True)
+        shutil.copyfile(source, target)
+    except OSError as error:
+        log.warning("cannot install the plugin icon: %s", error)
+
+
 def main():
     parser = argparse.ArgumentParser(description="KRunner plugin: finds applications typed in the wrong keyboard layout.")
     parser.add_argument("--query", metavar="TEXT", help="print what a search for TEXT finds, without D-Bus, and exit")
@@ -164,6 +185,7 @@ def main():
     plugin = LayoutFix(apps.AppIndex())
     plugin.reload_settings_if_changed()
     if args.query is None:
+        _install_icon()
         serve(plugin)
         return
 

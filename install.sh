@@ -22,6 +22,7 @@ fi
 
 install -Dm644 -t "$DESTDIR$APPDIR" src/*.py
 install -Dm644 data/krunner-layoutfix.desktop "$DESTDIR$DATADIR/krunner/dbusplugins/krunner-layoutfix.desktop"
+install -Dm644 "data/$SERVICE.svg" "$DESTDIR$DATADIR/icons/hicolor/scalable/apps/$SERVICE.svg"
 install -d "$DESTDIR$DATADIR/dbus-1/services"
 cat > "$DESTDIR$DATADIR/dbus-1/services/$SERVICE.service" <<EOF
 [D-BUS Service]

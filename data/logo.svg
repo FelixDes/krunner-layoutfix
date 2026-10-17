@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- A keycap with a Latin and a Cyrillic legend, as on Russian keyboards,
+       plus "switch" arrows and a magnifier: search in the other layout. -->
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3daee9"/>
+      <stop offset="1" stop-color="#1d82c7"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e8edf1"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="12" y="12" width="232" height="232" rx="52" fill="url(#background)"/>
+
+  <!-- keycap: side, then top face -->
+  <rect x="44" y="54" width="168" height="164" rx="30" fill="#155a8a"/>
+  <rect x="44" y="40" width="168" height="160" rx="30" fill="url(#face)"/>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- S, top left -->
+    <path stroke="#232629" stroke-width="12"
+          d="M112,70 C108,64 101,61 93,61 C82,61 74,67 74,76 C74,85 83,88 93,90
+             C104,92 112,96 112,105 C112,114 104,119 93,119 C84,119 77,116 73,110"/>
+    <!-- Ы, bottom right -->
+    <g stroke="#1d99f3" stroke-width="11">
+      <path d="M136,124 V174 H152 C163,174 170,168 170,160 C170,152 163,146 152,146 H136"/>
+      <path d="M188,124 V174"/>
+    </g>
+    <!-- switch arrows, top right -->
+    <g stroke="#9aa5b1" stroke-width="7">
+      <path d="M146,70 A19,19 0 0 1 180,70"/>
+      <path d="M180,70 l1,-11 M180,70 l-10,-4"/>
+      <path d="M180,98 A19,19 0 0 1 146,98"/>
+      <path d="M146,98 l-1,11 M146,98 l10,4"/>
+    </g>
+    <!-- magnifier, bottom left -->
+    <g stroke="#9aa5b1" stroke-width="8">
+      <circle cx="88" cy="150" r="17"/>
+      <path d="M101,163 L114,176"/>
+    </g>
+  </g>
+</svg>

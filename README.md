@@ -1,3 +1,5 @@
+<img src="data/logo.svg" width="96" align="right" alt="">
+
 # krunner-layoutfix
 
 A KRunner plugin that finds applications when you typed their name with the

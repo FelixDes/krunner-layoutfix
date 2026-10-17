@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Plugin icon: data/logo.svg without the small details, letters enlarged for small sizes. -->
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3daee9"/>
+      <stop offset="1" stop-color="#1d82c7"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e8edf1"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="12" y="12" width="232" height="232" rx="52" fill="url(#background)"/>
+
+  <!-- keycap: side, then top face -->
+  <rect x="40" y="54" width="176" height="168" rx="32" fill="#155a8a"/>
+  <rect x="40" y="38" width="176" height="166" rx="32" fill="url(#face)"/>
+
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- S, top left -->
+    <path stroke="#232629" stroke-width="13" transform="translate(96 94) scale(1.1) translate(-93 -90)"
+          d="M112,70 C108,64 101,61 93,61 C82,61 74,67 74,76 C74,85 83,88 93,90
+             C104,92 112,96 112,105 C112,114 104,119 93,119 C84,119 77,116 73,110"/>
+    <!-- Ы, bottom right -->
+    <g stroke="#1d99f3" stroke-width="13" transform="translate(160 152) scale(1.1) translate(-162 -149)">
+      <path d="M136,124 V174 H152 C163,174 170,168 170,160 C170,152 163,146 152,146 H136"/>
+      <path d="M188,124 V174"/>
+    </g>
+  </g>
+</svg>

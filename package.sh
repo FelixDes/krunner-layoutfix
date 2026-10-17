@@ -7,7 +7,7 @@ cd "$(dirname "$0")"
 
 VERSION=$(sed -n 's/^X-KDE-PluginInfo-Version=//p' data/krunner-layoutfix.desktop)
 ARCHIVE="dist/krunner-layoutfix-$VERSION.tar.gz"
-FILES=(README.md LICENSE install.sh uninstall.sh krunner-plugininstallerrc data/krunner-layoutfix.desktop src/*.py)
+FILES=(README.md LICENSE install.sh uninstall.sh krunner-plugininstallerrc data/krunner-layoutfix.desktop data/io.github.felixdes.KRunnerLayoutFix.svg src/*.py)
 
 mkdir -p dist
 # A single top-level folder: the store installer unpacks it as

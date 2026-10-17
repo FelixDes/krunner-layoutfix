@@ -7,7 +7,8 @@ APPDIR="$DATADIR/krunner-layoutfix"
 SERVICE=io.github.felixdes.KRunnerLayoutFix
 
 rm -rf "$APPDIR"
-rm -f "$DATADIR/krunner/dbusplugins/krunner-layoutfix.desktop" "$DATADIR/dbus-1/services/$SERVICE.service"
+rm -f "$DATADIR/krunner/dbusplugins/krunner-layoutfix.desktop" "$DATADIR/dbus-1/services/$SERVICE.service" \
+      "$DATADIR/icons/hicolor/scalable/apps/$SERVICE.svg"
 
 pkill -f "$APPDIR/runner.py" || true
 kquitapp6 krunner 2>/dev/null || kquitapp5 krunner 2>/dev/null || true
