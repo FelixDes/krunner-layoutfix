@@ -1,0 +1,4 @@
+# Lets System Settings → Search → Plasma Search → "Get New Plugins…" install the plugin
+# without running a script: it registers Exec as the D-Bus service and copies MetaDataFile.
+Exec=/usr/bin/python3 %{PROJECTDIR}/src/runner.py
+MetaDataFile=data/krunner-layoutfix.desktop
